@@ -3,7 +3,11 @@ require_relative "node"
 # hashmap implementation will instantiate an empty linked list for each of its
 # buckets.
 class LinkedList
+  private
+
   attr_accessor :head
+
+  public
 
   def initialize
     @head = nil

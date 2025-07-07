@@ -4,8 +4,12 @@ require_relative "linked_list"
 # bucket index, it and its value will be prepended to the linked list contained
 # there in the form of a node containing a two-index array.
 class HashMap
+  private
+
   attr_accessor :capacity, :buckets
   attr_reader :load_factor
+
+  public
 
   def initialize
     @capacity = 16
