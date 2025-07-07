@@ -1,9 +1,6 @@
-require_relative "node"
 # A blueprint for instantiating a new linked list for use in a hashmap. This
 # hashmap implementation will instantiate an empty linked list for each of its
-# buckets. When a key hashes to a certain bucket index, it and its value will be
-# prepended to the linked list contained there in the form of a node containing
-# a two-index array.
+# buckets.
 class LinkedList
   attr_accessor :head
 
