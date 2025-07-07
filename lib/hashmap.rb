@@ -10,7 +10,7 @@ class HashMap
   def initialize
     @capacity = 16
     @load_factor = 0.75
-    @buckets = Array.new(capacity, LinkedList.new)
+    @buckets = Array.new(capacity) { LinkedList.new }
   end
 
   private

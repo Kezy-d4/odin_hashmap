@@ -1,3 +1,4 @@
+require_relative "node"
 # A blueprint for instantiating a new linked list for use in a hashmap. This
 # hashmap implementation will instantiate an empty linked list for each of its
 # buckets.
