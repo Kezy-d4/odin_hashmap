@@ -12,4 +12,11 @@ class HashMap
     @load_factor = 0.75
     @buckets = Array.new(capacity, LinkedList.new)
   end
+
+  private
+
+  def double_capacity
+    capacity.times { buckets << LinkedList.new }
+    self.capacity = buckets.length
+  end
 end
