@@ -17,6 +17,13 @@ class HashMap
     @buckets = Array.new(capacity) { LinkedList.new }
   end
 
+  def to_s
+    puts "Current capacity: #{capacity}"
+    puts "Load factor: #{load_factor}"
+    puts "Buckets:"
+    buckets.each { |bucket| puts bucket }
+  end
+
   private
 
   def hash(key)
