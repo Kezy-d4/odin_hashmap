@@ -17,6 +17,18 @@ class HashMap
     @buckets = Array.new(capacity) { LinkedList.new }
   end
 
+  def set(key, value)
+    bucket_index = hash(key) % (capacity - 1)
+    if buckets[bucket_index].already_contains_key?(key)
+      buckets[bucket_index].overwrite_value_of_existing_key(key, value)
+    else
+      buckets[bucket_index].prepend([key, value])
+    end
+    # TODO: logic to grow the hashmap if it has become overloaded according to
+    # the load factor. We need a method to determine how many keys exist in the
+    # hashmap to accomplish this.
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"

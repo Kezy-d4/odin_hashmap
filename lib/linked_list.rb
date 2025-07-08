@@ -20,6 +20,22 @@ class LinkedList
     self.head = node
   end
 
+  def already_contains_key?(key)
+    current = head
+    until current.nil?
+      return true if current.data[0] == key
+
+      current = current.next_node
+    end
+    false
+  end
+
+  def overwrite_value_of_existing_key(key, value)
+    current = head
+    current = current.next_node until current.data[0] == key
+    current.data[1] = value
+  end
+
   def to_s
     print "Data in list: "
     current = head
