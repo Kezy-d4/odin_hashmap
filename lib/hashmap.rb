@@ -24,9 +24,7 @@ class HashMap
     else
       buckets[bucket_index].prepend([key, value])
     end
-    # TODO: logic to grow the hashmap if it has become overloaded according to
-    # the load factor. We need a method to determine how many keys exist in the
-    # hashmap to accomplish this.
+    double_capacity if length >= key_limit
   end
 
   def get(key)
