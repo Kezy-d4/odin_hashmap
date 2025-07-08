@@ -36,6 +36,16 @@ class LinkedList
     current.data[1] = value
   end
 
+  def find(key)
+    current = head
+    until current.nil?
+      return current.data[1] if current.data[0] == key
+
+      current = current.next_node
+    end
+    nil
+  end
+
   def to_s
     print "Data in list: "
     current = head

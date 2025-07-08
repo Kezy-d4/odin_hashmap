@@ -29,6 +29,14 @@ class HashMap
     # hashmap to accomplish this.
   end
 
+  def get(key)
+    buckets.each do |bucket|
+      value = bucket.find(key)
+      return value if value
+    end
+    nil
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
