@@ -69,6 +69,14 @@ class HashMap
     keys
   end
 
+  def values
+    values = []
+    buckets.each do |bucket|
+      bucket.entries.each { |entry| values << entry[1] }
+    end
+    values
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
