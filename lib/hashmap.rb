@@ -52,10 +52,17 @@ class HashMap
     nil
   end
 
+  def length
+    count = 0
+    buckets.each { |bucket| count += bucket.size }
+    count
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
     puts "Current key limit: #{key_limit}"
+    puts "Current length: #{length}"
     puts "Buckets:"
     buckets.each { |bucket| puts bucket }
   end

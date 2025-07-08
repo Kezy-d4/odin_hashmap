@@ -5,7 +5,7 @@ require_relative "node"
 # buckets. The instance methods available in this linked list class are designed
 # largely around what is necessary to implement the hashmap, though are also
 # flexible where possible.
-class LinkedList
+class LinkedList # rubocop:disable Metrics/ClassLength
   private
 
   attr_accessor :head
@@ -88,6 +88,16 @@ class LinkedList
     elsif middle?(node)
       delete_middle(node)
     end
+  end
+
+  def size
+    count = 0
+    current = head
+    until current.nil?
+      count += 1
+      current = current.next_node
+    end
+    count
   end
 
   def empty?
