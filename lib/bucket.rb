@@ -100,6 +100,16 @@ class Bucket # rubocop:disable Metrics/ClassLength
     count
   end
 
+  def entries
+    entries = []
+    current = head
+    until current.nil?
+      entries << current.data
+      current = current.next_node
+    end
+    entries
+  end
+
   def empty?
     head.nil?
   end

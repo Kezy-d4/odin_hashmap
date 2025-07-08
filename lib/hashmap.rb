@@ -61,6 +61,14 @@ class HashMap
     self.buckets = Array.new(capacity) { Bucket.new }
   end
 
+  def keys
+    keys = []
+    buckets.each do |bucket|
+      bucket.entries.each { |entry| keys << entry[0] }
+    end
+    keys
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
