@@ -77,6 +77,14 @@ class HashMap
     values
   end
 
+  def pairs
+    pairs = []
+    buckets.each do |bucket|
+      bucket.entries.each { |entry| pairs << entry }
+    end
+    pairs
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
