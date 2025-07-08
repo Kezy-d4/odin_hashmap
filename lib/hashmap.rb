@@ -19,7 +19,7 @@ class HashMap
 
   def set(key, value)
     bucket_index = hash(key) % (capacity - 1)
-    if buckets[bucket_index].already_contains_key?(key)
+    if buckets[bucket_index].contains_key?(key)
       buckets[bucket_index].overwrite_value_of_existing_key(key, value)
     else
       buckets[bucket_index].prepend([key, value])

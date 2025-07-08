@@ -20,7 +20,7 @@ class LinkedList
     self.head = node
   end
 
-  def already_contains_key?(key)
+  def contains_key?(key)
     current = head
     until current.nil?
       return true if current.data[0] == key
