@@ -20,7 +20,7 @@ class LinkedList
     self.head = node
   end
 
-  def contains_key?(key)
+  def contains?(key)
     current = head
     until current.nil?
       return true if current.data[0] == key
@@ -39,7 +39,7 @@ class LinkedList
   def find(key)
     current = head
     until current.nil?
-      return current.data[1] if current.data[0] == key
+      return current if current.data[0] == key
 
       current = current.next_node
     end

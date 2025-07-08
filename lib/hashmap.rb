@@ -19,7 +19,7 @@ class HashMap
 
   def set(key, value)
     bucket_index = hash(key) % (capacity - 1)
-    if buckets[bucket_index].contains_key?(key)
+    if buckets[bucket_index].contains?(key)
       buckets[bucket_index].overwrite_value_of_existing_key(key, value)
     else
       buckets[bucket_index].prepend([key, value])
@@ -31,14 +31,14 @@ class HashMap
 
   def get(key)
     buckets.each do |bucket|
-      value = bucket.find(key)
-      return value if value
+      node = bucket.find(key)
+      return node.data[1] unless node.nil?
     end
     nil
   end
 
   def has?(key)
-    buckets.each { |bucket| return true if bucket.contains_key?(key) }
+    buckets.each { |bucket| return true if bucket.contains?(key) }
     false
   end
 
