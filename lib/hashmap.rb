@@ -56,6 +56,11 @@ class HashMap
     count
   end
 
+  def clear
+    capacity = 16
+    self.buckets = Array.new(capacity) { LinkedList.new }
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
