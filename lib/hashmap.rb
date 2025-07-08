@@ -14,7 +14,7 @@ class HashMap
   def initialize
     @capacity = 16
     @load_factor = 0.75
-    @buckets = Array.new(capacity) { LinkedList.new }
+    @buckets = Array.new(capacity) { Bucket.new }
   end
 
   def set(key, value)
@@ -58,7 +58,7 @@ class HashMap
 
   def clear
     capacity = 16
-    self.buckets = Array.new(capacity) { LinkedList.new }
+    self.buckets = Array.new(capacity) { Bucket.new }
   end
 
   def to_s
@@ -84,7 +84,7 @@ class HashMap
   end
 
   def double_capacity
-    capacity.times { buckets << LinkedList.new }
+    capacity.times { buckets << Bucket.new }
     self.capacity = buckets.length
   end
 end

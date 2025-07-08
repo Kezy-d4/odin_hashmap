@@ -5,7 +5,7 @@ require_relative "node"
 # buckets. The instance methods available in this linked list class are designed
 # largely around what is necessary to implement the hashmap, though are also
 # flexible where possible.
-class LinkedList # rubocop:disable Metrics/ClassLength
+class Bucket # rubocop:disable Metrics/ClassLength
   private
 
   attr_accessor :head
