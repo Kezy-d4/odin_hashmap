@@ -37,6 +37,11 @@ class HashMap
     nil
   end
 
+  def has?(key)
+    buckets.each { |bucket| return true if bucket.contains_key?(key) }
+    false
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"

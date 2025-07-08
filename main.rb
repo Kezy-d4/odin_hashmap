@@ -8,4 +8,6 @@ h.set("Amanda", "Rose")
 p h.get("Carlos")
 p h.get("Amanda")
 p h.get("Josh")
+p h.has?("Amanda")
+p h.has?("Josh")
 puts h
