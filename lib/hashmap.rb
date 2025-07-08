@@ -32,6 +32,7 @@ class HashMap
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"
+    puts "Current key limit: #{key_limit}"
     puts "Buckets:"
     buckets.each { |bucket| puts bucket }
   end
@@ -43,6 +44,10 @@ class HashMap
     prime_number = 31
     key.each_char { |char| hash_code = (prime_number * hash_code) + char.ord }
     hash_code
+  end
+
+  def key_limit
+    (capacity * load_factor).ceil
   end
 
   def double_capacity
