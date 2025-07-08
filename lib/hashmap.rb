@@ -42,6 +42,16 @@ class HashMap
     false
   end
 
+  def remove(key)
+    buckets.each do |bucket|
+      node = bucket.find(key)
+      next unless node
+
+      return bucket.delete_existing_node(node)
+    end
+    nil
+  end
+
   def to_s
     puts "Current capacity: #{capacity}"
     puts "Load factor: #{load_factor}"

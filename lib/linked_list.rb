@@ -2,7 +2,9 @@ require_relative "node"
 
 # A blueprint for instantiating a new linked list for use in a hashmap. This
 # hashmap implementation will instantiate an empty linked list for each of its
-# buckets.
+# buckets. The instance methods available in this linked list class are designed
+# largely around what is necessary to implement the hashmap, though are also
+# flexible where possible.
 class LinkedList
   private
 
@@ -46,6 +48,52 @@ class LinkedList
     nil
   end
 
+  def delete_head
+    return if empty?
+
+    self.head = (only_node?(head) ? nil : head.next_node)
+  end
+
+  def pop
+    return if empty?
+    return self.head = nil if only_node?(head)
+
+    previous = nil
+    current = head
+    until current.next_node.nil?
+      previous = current
+      current = current.next_node
+    end
+    previous.next_node = nil
+  end
+
+  def delete_middle(node)
+    return if empty?
+    return if head?(node) || tail?(node)
+
+    previous = nil
+    current = head
+    until current == node
+      previous = current
+      current = current.next_node
+    end
+    previous.next_node = current.next_node
+  end
+
+  def delete_existing_node(node)
+    if head?(node)
+      delete_head
+    elsif tail?(node)
+      pop
+    elsif middle?(node)
+      delete_middle(node)
+    end
+  end
+
+  def empty?
+    head.nil?
+  end
+
   def to_s
     print "Data in list: "
     current = head
@@ -54,5 +102,23 @@ class LinkedList
       current = current.next_node
     end
     print "nil "
+  end
+
+  private
+
+  def head?(node)
+    !empty? && node == head
+  end
+
+  def only_node?(node)
+    !empty? && head?(node) && node.next_node.nil?
+  end
+
+  def tail?(node)
+    !empty? && !only_node?(node) && !head?(node) && node.next_node.nil?
+  end
+
+  def middle?(node)
+    !empty? && !only_node?(node) && !head?(node) && !tail?(node)
   end
 end
