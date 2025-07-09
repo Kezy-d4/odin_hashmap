@@ -18,7 +18,7 @@ class HashMap
   end
 
   def set(key, value)
-    bucket_index = hash(key) % (capacity - 1)
+    bucket_index = hash(key) % capacity
     if buckets[bucket_index].contains?(key)
       buckets[bucket_index].overwrite_value_of_existing_key(key, value)
     else
