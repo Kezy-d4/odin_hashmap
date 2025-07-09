@@ -108,7 +108,9 @@ class HashMap
   end
 
   def double_capacity
-    capacity.times { buckets << Bucket.new }
-    self.capacity = buckets.length
+    entries = pairs
+    self.capacity *= 2
+    self.buckets = Array.new(capacity) { Bucket.new }
+    entries.each { |entry| set(entry[0], entry[1]) }
   end
 end
