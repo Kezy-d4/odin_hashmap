@@ -30,7 +30,7 @@ test.set("kite", "magenta")
 test.set("plane", "white")
 test.set("camel", "brown")
 test.set("lake", "blue")
-# Testing methods
+# # Testing methods
 p "get non-existent 'adam': #{test.get('adam')}"
 p "get existing 'carrot': #{test.get('carrot')}"
 p "has? non-existent 'gordon': #{test.get('gordon')}"
@@ -42,4 +42,4 @@ p "length: #{test.length}"
 puts "keys: #{test.keys}"
 puts "values: #{test.values}"
 puts "pairs: #{test.pairs}"
-# puts test
+puts test

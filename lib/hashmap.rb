@@ -57,7 +57,7 @@ class HashMap
   end
 
   def clear
-    capacity = 16
+    self.capacity = 16
     self.buckets = Array.new(capacity) { Bucket.new }
   end
 
