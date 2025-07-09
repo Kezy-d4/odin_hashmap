@@ -24,7 +24,7 @@ class HashMap
     else
       buckets[bucket_index].prepend([key, value])
     end
-    double_capacity if length >= key_limit
+    double_capacity if length > key_limit
   end
 
   def get(key)
