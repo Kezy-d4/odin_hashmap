@@ -32,6 +32,16 @@ class Bucket # rubocop:disable Metrics/ClassLength
     false
   end
 
+  def contains_hashset_key?(key)
+    current = head
+    until current.nil?
+      return true if current.data == key
+
+      current = current.next_node
+    end
+    false
+  end
+
   def overwrite_value_of_existing_key(key, value)
     current = head
     current = current.next_node until current.data[0] == key
@@ -42,6 +52,16 @@ class Bucket # rubocop:disable Metrics/ClassLength
     current = head
     until current.nil?
       return current if current.data[0] == key
+
+      current = current.next_node
+    end
+    nil
+  end
+
+  def find_hashset_key(key)
+    current = head
+    until current.nil?
+      return current if current.data == key
 
       current = current.next_node
     end
